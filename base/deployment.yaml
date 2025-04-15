@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: drf-deployment
+  namespace: base
+spec:
+  selector:
+    matchLabels:
+      app: drf
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: drf
+    spec:
+      containers:
+        - name: nginx
+          image: minhngocnguyen/k8s-example-app
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: "64Mi"
+              cpu: "128m"
+          ports:
+            - containerPort: 80

@@ -1,0 +1,9 @@
+namespace: dev
+replicas:
+  - name: drf-deployment
+    count: 2
+images:
+  - name: minhngocnguyen/k8s-example-app
+    newTag: v0.0.1
+resources:
+  - ../../../base
